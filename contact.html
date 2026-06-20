@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Contact · Perumbavoor Surgicals</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-white: #ffffff;
+      --bg-offwhite: #fefefc;
+      --bg-soft-mint: #eef9f2;
+      --bg-warm-peach: #fef5ed;
+      --bg-lavender: #f4f6fd;
+      --bg-calm-blue: #ebf4fa;
+      --primary: #2f8b7c;
+      --primary-light: #6bb8ad;
+      --primary-soft: #ddf3ef;
+      --accent: #e8875e;
+      --accent-soft: #fde9e2;
+      --gray-900: #1e2a36;
+      --gray-700: #2c3e4e;
+      --gray-600: #4a6272;
+      --gray-500: #7e95a5;
+      --gray-300: #cbdde6;
+      --gray-100: #ecf3f7;
+      --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow-md: 0 10px 22px -8px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
+      --shadow-lg: 0 20px 28px -12px rgba(47, 139, 124, 0.12);
+      --transition: all 0.25s ease;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      background: var(--bg-white);
+      color: var(--gray-900);
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--primary);
+      background: var(--primary-soft);
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border-radius: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--gray-900);
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 1.9rem;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== NAVIGATION (identical) ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(47, 139, 124, 0.12);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 5%;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #2f8b7c 0%, #54b4a5 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .tagline {
+      font-size: 0.65rem;
+      color: var(--gray-500);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: var(--transition);
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .nav-links a.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary-soft);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      padding: 0.5rem;
+      z-index: 210;
+    }
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--primary);
+      border-radius: 4px;
+      transition: 0.2s;
+    }
+
+    @media (max-width: 780px) {
+      .hamburger {
+        display: flex;
+      }
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 280px;
+        height: 100vh;
+        background: white;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 6rem 2rem 2rem;
+        gap: 1.8rem;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.05);
+        transition: right 0.3s ease;
+        z-index: 150;
+        border-left: 1px solid var(--gray-100);
+      }
+      .nav-links.active {
+        right: 0;
+      }
+      .nav-links a {
+        font-size: 1.1rem;
+      }
+      body.menu-open {
+        overflow: hidden;
+      }
+    }
+
+    /* ===== CONTACT PAGE HERO ===== */
+    .contact-hero {
+      background: var(--bg-calm-blue);
+      padding: 3rem 5% 2.5rem;
+      border-bottom: 1px solid rgba(47,139,124,0.08);
+    }
+    .contact-hero-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .contact-hero h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+    .contact-hero h1 span {
+      color: var(--accent);
+    }
+    .contact-hero p {
+      color: var(--gray-600);
+      max-width: 460px;
+    }
+    .btn-primary, .btn-outline {
+      display: inline-block;
+      padding: 0.6rem 1.8rem;
+      border-radius: 2.5rem;
+      font-weight: 500;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: var(--transition);
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 6px 14px rgba(47,139,124,0.2);
+    }
+    .btn-primary:hover {
+      background: #257a6c;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      border: 1px solid var(--gray-300);
+      color: var(--gray-700);
+      background: white;
+    }
+    .btn-outline:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* ===== MAIN CONTENT (calm blue bg) ===== */
+    .contact-main {
+      padding: 4rem 5% 5rem;
+      background: var(--bg-calm-blue);
+    }
+    .contact-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 3rem;
+      align-items: stretch;
+    }
+
+    /* left card - more compact, no extra tallness */
+    .contact-details {
+      background: white;
+      padding: 2rem 2rem 2rem;
+      border-radius: 2rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(47,139,124,0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .contact-block {
+      margin-bottom: 1.4rem;
+    }
+    .contact-block:last-child {
+      margin-bottom: 0;
+    }
+    .contact-block-label {
+      font-size: 0.6rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+      text-transform: uppercase;
+    }
+    .contact-block p, .contact-block a {
+      font-size: 0.95rem;
+      color: var(--gray-800);
+      text-decoration: none;
+    }
+    .contact-block a:hover {
+      color: var(--accent);
+    }
+    .contact-divider {
+      width: 32px;
+      height: 2px;
+      background: var(--primary-soft);
+      margin: 0.8rem 0 1.2rem;
+    }
+
+    /* map wrapper - taller */
+    .map-wrapper {
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      min-height: 400px;
+      height: 100%;
+      background: #d9e9e5;
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 400px;
+      border: 0;
+      display: block;
+    }
+
+    .contact-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--gray-100);
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--gray-600);
+    }
+    .meta-item strong {
+      color: var(--gray-900);
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .contact-hero h1 {
+        font-size: 1.9rem;
+      }
+      .map-wrapper {
+        min-height: 320px;
+      }
+      .map-wrapper iframe {
+        min-height: 320px;
+      }
+      .contact-details {
+        height: auto;
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid #e2edf2;
+      padding: 2.5rem 5% 1.8rem;
+      text-align: center;
+    }
+    .footer-brand .brand {
+      font-size: 1.3rem;
+      background: linear-gradient(135deg, #2f8b7c, #42958a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .sub {
+      font-size: 0.65rem;
+      color: var(--gray-500);
+      margin-top: 0.2rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 1.2rem 0 1rem;
+    }
+    .footer-links a {
+      text-decoration: none;
+      color: var(--gray-600);
+      font-size: 0.8rem;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    footer p {
+      color: var(--gray-400);
+      font-size: 0.65rem;
+    }
+
+    @media (max-width: 500px) {
+      .contact-hero-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      .contact-hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">
+    <span class="brand">Perumbavoor Surgicals</span>
+    <span class="tagline">Surgical Hyper Mart · Est. Kerala</span>
+  </div>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- CONTACT HERO -->
+<section class="contact-hero">
+  <div class="contact-hero-inner">
+    <div>
+      <div class="section-label">📍 Get in touch</div>
+      <h1>We’re here to <span>help</span></h1>
+      <p>Visit our store, call us, or send an email — our team is ready to assist with all your medical equipment needs.</p>
+    </div>
+    <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
+      <a href="tel:9846248000" class="btn-primary">📞 Call Now</a>
+      <a href="mailto:info@perumbavoorsurgicals.com" class="btn-outline">✉️ Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT GRID -->
+<section class="contact-main" id="contact">
+  <div class="contact-grid">
+    <!-- left: details (compact) -->
+    <div class="contact-details reveal">
+      <div>
+        <div class="contact-block">
+          <div class="contact-block-label">📍 Address</div>
+          <p><strong>Perumbavoor Surgicals Pvt Ltd</strong><br>
+          Pattarumadom Complex<br>
+          Near Apsara Hotel, KSRTC Road<br>
+          Perumbavoor, Ernakulam<br>
+          Kerala – 683542</p>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div class="contact-block">
+          <div class="contact-block-label">📞 Phone</div>
+          <p><a href="tel:9846248000">98462 48000</a></p>
+        </div>
+
+        <div class="contact-block">
+          <div class="contact-block-label">✉️ Email</div>
+          <p><a href="mailto:info@perumbavoorsurgicals.com">info@perumbavoorsurgicals.com</a></p>
+        </div>
+
+        <div class="contact-divider"></div>
+
+        <div class="contact-block">
+          <div class="contact-block-label">🕒 Business Hours</div>
+          <p>Monday – Saturday &nbsp;·&nbsp; 9:00 am – 7:00 pm<br>
+          <span style="font-size:0.8rem; color:var(--gray-500);">Sunday closed</span></p>
+        </div>
+      </div>
+
+      <div class="contact-meta">
+        <span class="meta-item"><strong>📦</strong> Surgical Hyper Mart</span>
+        <span class="meta-item"><strong>🏥</strong> Hospital & home care</span>
+        <span class="meta-item"><strong>♿</strong> Mobility aids</span>
+      </div>
+    </div>
+
+    <!-- right: map (taller) -->
+    <div class="map-wrapper reveal">
+      <iframe 
+        src="https://maps.google.com/maps?q=perumbavoor%20surgicals&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+        title="Perumbavoor Surgicals location" 
+        loading="lazy"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="brand">Perumbavoor Surgicals</div>
+    <div class="sub">Surgical Hyper Mart · Perumbavoor, Kerala</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <p>© 2026 Perumbavoor Surgicals Pvt Ltd</p>
+</footer>
+
+<script>
+  // HAMBURGER
+  const hamburger = document.getElementById('hamburgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  const bodyEl = document.body;
+
+  function toggleMenu() {
+    navLinks.classList.toggle('active');
+    bodyEl.classList.toggle('menu-open');
+  }
+  hamburger.addEventListener('click', toggleMenu);
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      bodyEl.classList.remove('menu-open');
+    });
+  });
+
+  // SCROLL REVEAL
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -10px 0px" });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
