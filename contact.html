@@ -14,15 +14,15 @@
     :root {
       --bg-white: #ffffff;
       --bg-offwhite: #fefefc;
-      --bg-soft-mint: #eef9f2;
-      --bg-warm-peach: #fef5ed;
-      --bg-lavender: #f4f6fd;
-      --bg-calm-blue: #ebf4fa;
-      --primary: #2f8b7c;
-      --primary-light: #6bb8ad;
-      --primary-soft: #ddf3ef;
-      --accent: #e8875e;
-      --accent-soft: #fde9e2;
+      --bg-soft-mint: #eef6fd;
+      --bg-warm-peach: #f5f9ff;
+      --bg-lavender: #f0f5fe;
+      --bg-calm-blue: #e8f0fe;
+      --primary: #1a6fc4;
+      --primary-light: #5a9bdf;
+      --primary-soft: #d4e5fc;
+      --accent: #1a6fc4;
+      --accent-soft: #d4e5fc;
       --gray-900: #1e2a36;
       --gray-700: #2c3e4e;
       --gray-600: #4a6272;
@@ -31,16 +31,12 @@
       --gray-100: #ecf3f7;
       --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
       --shadow-md: 0 10px 22px -8px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
-      --shadow-lg: 0 20px 28px -12px rgba(47, 139, 124, 0.12);
+      --shadow-lg: 0 20px 28px -12px rgba(26, 111, 196, 0.12);
       --transition: all 0.25s ease;
     }
 
     body {
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
-      background: var(--bg-white);
-      color: var(--gray-900);
-      line-height: 1.5;
-      overflow-x: hidden;
+    font-family:Inter,Arial,sans-serif;background:#f8fbff;color:#1e293b
     }
 
     .section-label {
@@ -80,186 +76,233 @@
       transform: translateY(0);
     }
 
-    /* ===== NAVIGATION (identical) ===== */
-    nav {
+    /* ===== MEDIX NAVBAR (refined - same as products page) ===== */
+    .medixnav-wrapper {
       position: sticky;
       top: 0;
-      z-index: 200;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(47, 139, 124, 0.12);
+      z-index: 9999;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+    .medixnav-container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 14px 5%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0.8rem 5%;
+      justify-content: space-between;
     }
-
-    .nav-logo {
+    .medixnav-brand {
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
     }
-    .brand {
-      font-size: 1.45rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #2f8b7c 0%, #54b4a5 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
+    .medixnav-brand img {
+      height: 54px;
+      width: auto;
     }
-    .tagline {
-      font-size: 0.65rem;
-      color: var(--gray-500);
-    }
-
-    .nav-links {
+    .medixnav-links {
       display: flex;
-      gap: 2.2rem;
+      align-items: center;
+      gap: 2rem;
       list-style: none;
     }
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--gray-700);
-      transition: var(--transition);
+    .medixnav-links a {
+     text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      position: relative;
+      transition: .3s ease;
     }
-    .nav-links a:hover {
-      color: var(--primary);
+    .medixnav-links a:not(.medixnav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 3px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #1a6fc4, #5a9bdf);
+      transition: .3s ease;
     }
-    .nav-links a.active {
-      color: var(--primary);
-      border-bottom: 2px solid var(--primary-soft);
+    .medixnav-links a:not(.medixnav-cta):hover::after {
+      width: 100%;
     }
-
-    .hamburger {
+    .medixnav-links a:not(.medixnav-cta):hover {
+      color: #1a6fc4;
+    }
+    .medixnav-links a.active {
+      color: #1a6fc4;
+    }
+    .medixnav-links a.active::after {
+      width: 100%;
+    }
+    .medixnav-cta {
+      background: linear-gradient(135deg, #1a6fc4, #5a9bdf);
+      color: white !important;
+       padding: 12px 22px!important;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(26, 111, 196, .25);
+      transition: .3s;
+      font-weight: 600;
+      /* letter-spacing: 0.02em; */
+    }
+    .medixnav-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(26, 111, 196, .35);
+      color: white !important;
+    }
+    .medixnav-cta::after {
+      display: none !important;
+    }
+    .medixnav-toggle {
       display: none;
       flex-direction: column;
-      cursor: pointer;
       gap: 5px;
-      background: transparent;
       border: none;
-      padding: 0.5rem;
-      z-index: 210;
+      background: transparent;
+      cursor: pointer;
     }
-    .hamburger span {
-      width: 24px;
-      height: 2px;
-      background: var(--primary);
-      border-radius: 4px;
+    .medixnav-toggle span {
+      width: 28px;
+      height: 3px;
+      background: #0f172a;
+      border-radius: 50px;
       transition: 0.2s;
     }
-
-    @media (max-width: 780px) {
-      .hamburger {
+    @media (max-width: 900px) {
+      .medixnav-toggle {
         display: flex;
       }
-      .nav-links {
+      .medixnav-links {
         position: fixed;
-        top: 0;
+        top: 84px;
         right: -100%;
-        width: 70%;
-        max-width: 280px;
-        height: 100vh;
-        background: white;
+        width: 280px;
+        height: calc(100vh - 84px);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
         align-items: flex-start;
-        padding: 6rem 2rem 2rem;
-        gap: 1.8rem;
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.05);
-        transition: right 0.3s ease;
-        z-index: 150;
-        border-left: 1px solid var(--gray-100);
+        padding: 2rem 2rem 2rem 2.2rem;
+        gap: 1.5rem;
+        transition: .4s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, .08);
+        border-left: 1px solid rgba(0,0,0,0.04);
       }
-      .nav-links.active {
+      .medixnav-links.medixnav-open {
         right: 0;
       }
-      .nav-links a {
-        font-size: 1.1rem;
+      .medixnav-brand img {
+        height: 46px;
       }
-      body.menu-open {
-        overflow: hidden;
+      .medixnav-links a:not(.medixnav-cta)::after {
+        display: none;
+      }
+      .medixnav-links a {
+        font-size: 1.1rem;
+        padding: 6px 0;
+      }
+      .medixnav-links a.active {
+        color: #1a6fc4;
       }
     }
 
-    /* ===== CONTACT PAGE HERO ===== */
+    /* ===== CONTACT HERO (matches products page hero) ===== */
     .contact-hero {
-      background: var(--bg-calm-blue);
-      padding: 3rem 5% 2.5rem;
-      border-bottom: 1px solid rgba(47,139,124,0.08);
-    }
-    .contact-hero-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
+      padding: 60px 5%;
+      text-align: center;
+      background: linear-gradient(135deg, #e8f0fe, #f0f7fe);
     }
     .contact-hero h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #1a2a3a;
     }
     .contact-hero h1 span {
-      color: var(--accent);
+      color: #1a6fc4;
     }
     .contact-hero p {
-      color: var(--gray-600);
-      max-width: 460px;
+      max-width: 800px;
+      margin: auto;
+      color: #4a6a8a;
+      line-height: 1.6;
+    }
+    .contact-hero .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 30px;
     }
     .btn-primary, .btn-outline {
-      display: inline-block;
-      padding: 0.6rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
       border-radius: 2.5rem;
       font-weight: 500;
       text-decoration: none;
+      transition: all 0.2s;
       font-size: 0.85rem;
-      transition: var(--transition);
     }
     .btn-primary {
       background: var(--primary);
       color: white;
-      box-shadow: 0 6px 14px rgba(47,139,124,0.2);
+      box-shadow: 0 6px 14px rgba(26, 111, 196, 0.2);
     }
     .btn-primary:hover {
-      background: #257a6c;
+      background: #155ca8;
       transform: translateY(-2px);
+      box-shadow: 0 12px 20px -8px rgba(26, 111, 196, 0.3);
     }
     .btn-outline {
-      border: 1px solid var(--gray-300);
-      color: var(--gray-700);
+      border: 1px solid #cbd5e1;
+      color: #334155;
       background: white;
     }
     .btn-outline:hover {
-      border-color: var(--primary);
-      color: var(--primary);
+      border-color: #1a6fc4;
+      color: #1a6fc4;
+      transform: translateY(-2px);
     }
 
-    /* ===== MAIN CONTENT (calm blue bg) ===== */
+    /* ===== CONTENT GRID (matches products page card style) ===== */
     .contact-main {
-      padding: 4rem 5% 5rem;
-      background: var(--bg-calm-blue);
+      padding: 60px 5%;
+      background: #f8fbff;
     }
     .contact-grid {
       max-width: 1280px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 1fr 1.3fr;
-      gap: 3rem;
+      gap: 2rem;
       align-items: stretch;
     }
 
-    /* left card - more compact, no extra tallness */
     .contact-details {
-      background: white;
-      padding: 2rem 2rem 2rem;
-      border-radius: 2rem;
-      box-shadow: var(--shadow-md);
-      border: 1px solid rgba(47,139,124,0.05);
+      background: #fff;
+      border-radius: 18px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(26, 111, 196, 0.05);
+      transition: .3s ease;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%;
     }
+    .contact-details:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(26, 111, 196, 0.10);
+    }
+
     .contact-block {
       margin-bottom: 1.4rem;
     }
@@ -276,11 +319,11 @@
     }
     .contact-block p, .contact-block a {
       font-size: 0.95rem;
-      color: var(--gray-800);
+      color: #1e293b;
       text-decoration: none;
     }
     .contact-block a:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
     .contact-divider {
       width: 32px;
@@ -289,14 +332,18 @@
       margin: 0.8rem 0 1.2rem;
     }
 
-    /* map wrapper - taller */
     .map-wrapper {
-      border-radius: 2rem;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: var(--shadow-lg);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
       min-height: 400px;
       height: 100%;
-      background: #d9e9e5;
+      background: #eef6ff;
+      transition: .3s ease;
+    }
+    .map-wrapper:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(26, 111, 196, 0.10);
     }
     .map-wrapper iframe {
       width: 100%;
@@ -312,17 +359,17 @@
       gap: 1.2rem;
       margin-top: 1.6rem;
       padding-top: 1.2rem;
-      border-top: 1px solid var(--gray-100);
+      border-top: 1px solid #ecf3f7;
     }
     .meta-item {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       font-size: 0.8rem;
-      color: var(--gray-600);
+      color: #4a6272;
     }
     .meta-item strong {
-      color: var(--gray-900);
+      color: #1e2a36;
       font-weight: 600;
     }
 
@@ -332,7 +379,7 @@
         gap: 2rem;
       }
       .contact-hero h1 {
-        font-size: 1.9rem;
+        font-size: 2rem;
       }
       .map-wrapper {
         min-height: 320px;
@@ -345,95 +392,116 @@
       }
     }
 
-    /* ===== FOOTER ===== */
-    footer {
+    /* ===== FOOTER (same as products page) ===== */
+    .home-footer {
       background: #ffffff;
       border-top: 1px solid #e2edf2;
       padding: 2.5rem 5% 1.8rem;
       text-align: center;
+      margin-top: 0;
     }
-    .footer-brand .brand {
+    .home-footer .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .home-footer .footer-brand img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+    .home-footer .footer-brand .brand-name {
       font-size: 1.3rem;
-      background: linear-gradient(135deg, #2f8b7c, #42958a);
+      font-weight: 700;
+      background: linear-gradient(135deg, #1a6fc4, #4295d4);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
     }
-    .sub {
+    .home-footer .footer-brand .sub {
       font-size: 0.65rem;
-      color: var(--gray-500);
-      margin-top: 0.2rem;
+      color: #7e95a5;
     }
-    .footer-links {
+    .home-footer .footer-links {
       display: flex;
       justify-content: center;
       gap: 2rem;
       list-style: none;
       margin: 1.2rem 0 1rem;
     }
-    .footer-links a {
+    .home-footer .footer-links a {
       text-decoration: none;
-      color: var(--gray-600);
+      color: #4a6272;
       font-size: 0.8rem;
+      transition: .2s;
     }
-    .footer-links a:hover {
-      color: var(--primary);
+    .home-footer .footer-links a:hover {
+      color: #1a6fc4;
     }
-    footer p {
-      color: var(--gray-400);
+    .home-footer p {
+      color: #94a3b8;
       font-size: 0.65rem;
     }
 
     @media (max-width: 500px) {
-      .contact-hero-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-      }
       .contact-hero h1 {
         font-size: 1.7rem;
+      }
+      .contact-hero .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      .contact-hero .hero-actions .btn-primary,
+      .contact-hero .hero-actions .btn-outline {
+        width: 100%;
+        justify-content: center;
       }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav>
-  <div class="nav-logo">
-    <span class="brand">Perumbavoor Surgicals</span>
-    <span class="tagline">Surgical Hyper Mart · Est. Kerala</span>
+<!-- ===== MEDIX NAVBAR (refined - same as products page) ===== -->
+<header class="medixnav-wrapper">
+  <div class="medixnav-container">
+    <a href="index.html" class="medixnav-brand">
+      <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals">
+    </a>
+    <ul class="medixnav-links" id="medixnavLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="index.html#brochure">Brochure</a></li>
+      <li>
+        <a href="tel:+919846248007" class="medixnav-cta">
+          Call Now
+        </a>
+      </li>
+    </ul>
+    <button class="medixnav-toggle" id="medixnavToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
-  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#contact" class="active">Contact</a></li>
-  </ul>
-</nav>
+</header>
 
 <!-- CONTACT HERO -->
 <section class="contact-hero">
-  <div class="contact-hero-inner">
-    <div>
-      <div class="section-label">📍 Get in touch</div>
-      <h1>We’re here to <span>help</span></h1>
-      <p>Visit our store, call us, or send an email — our team is ready to assist with all your medical equipment needs.</p>
-    </div>
-    <div style="display:flex; gap:0.8rem; flex-wrap:wrap;">
-      <a href="tel:9846248000" class="btn-primary">📞 Call Now</a>
-      <a href="mailto:info@perumbavoorsurgicals.com" class="btn-outline">✉️ Email</a>
-    </div>
+  <h1>Get in <span>Touch</span></h1>
+  <p>Visit our store, call us, or send an email — our team is ready to assist with all your medical equipment needs.</p>
+  <div class="hero-actions">
+    <a href="tel:9846248000" class="btn-primary">📞 Call Now</a>
+    <a href="mailto:info@perumbavoorsurgicals.com" class="btn-outline">✉️ Email Us</a>
   </div>
 </section>
 
 <!-- CONTENT GRID -->
 <section class="contact-main" id="contact">
   <div class="contact-grid">
-    <!-- left: details (compact) -->
+    <!-- left: details -->
     <div class="contact-details reveal">
       <div>
         <div class="contact-block">
@@ -449,7 +517,7 @@
 
         <div class="contact-block">
           <div class="contact-block-label">📞 Phone</div>
-          <p><a href="tel:9846248000">98462 48000</a></p>
+          <p><a href="tel:9846248007">9846248007</a></p>
         </div>
 
         <div class="contact-block">
@@ -462,7 +530,7 @@
         <div class="contact-block">
           <div class="contact-block-label">🕒 Business Hours</div>
           <p>Monday – Saturday &nbsp;·&nbsp; 9:00 am – 7:00 pm<br>
-          <span style="font-size:0.8rem; color:var(--gray-500);">Sunday closed</span></p>
+          <span style="font-size:0.8rem; color:#7e95a5;">Sunday closed</span></p>
         </div>
       </div>
 
@@ -473,7 +541,7 @@
       </div>
     </div>
 
-    <!-- right: map (taller) -->
+    <!-- right: map -->
     <div class="map-wrapper reveal">
       <iframe 
         src="https://maps.google.com/maps?q=perumbavoor%20surgicals&t=&z=16&ie=UTF8&iwloc=&output=embed" 
@@ -485,40 +553,49 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
+<!-- ===== FOOTER (same as products page) ===== -->
+<footer class="home-footer">
   <div class="footer-brand">
-    <div class="brand">Perumbavoor Surgicals</div>
-    <div class="sub">Surgical Hyper Mart · Perumbavoor, Kerala</div>
+    <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals Logo">
+    <span class="brand-name">Perumbavoor Surgicals</span>
+    <span class="sub">Surgical Hyper Mart · Perumbavoor, Kerala</span>
   </div>
   <ul class="footer-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#products">Products</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="index.html">Brochure</a></li>
   </ul>
   <p>© 2026 Perumbavoor Surgicals Pvt Ltd</p>
 </footer>
 
 <script>
-  // HAMBURGER
-  const hamburger = document.getElementById('hamburgerBtn');
-  const navLinks = document.getElementById('navLinks');
+  // ===== MEDIX NAVBAR TOGGLE =====
+  const toggleBtn = document.getElementById('medixnavToggle');
+  const navLinks = document.getElementById('medixnavLinks');
   const bodyEl = document.body;
 
   function toggleMenu() {
-    navLinks.classList.toggle('active');
+    navLinks.classList.toggle('medixnav-open');
     bodyEl.classList.toggle('menu-open');
   }
-  hamburger.addEventListener('click', toggleMenu);
+  toggleBtn.addEventListener('click', toggleMenu);
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  document.querySelectorAll('.medixnav-links a').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('active');
+      navLinks.classList.remove('medixnav-open');
       bodyEl.classList.remove('menu-open');
     });
   });
 
-  // SCROLL REVEAL
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.medixnav-wrapper') && navLinks.classList.contains('medixnav-open')) {
+      navLinks.classList.remove('medixnav-open');
+      bodyEl.classList.remove('menu-open');
+    }
+  });
+
+  // ===== SCROLL REVEAL =====
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -527,7 +604,6 @@
       }
     });
   }, { threshold: 0.1, rootMargin: "0px 0px -10px 0px" });
-
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 

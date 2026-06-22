@@ -1,297 +1,389 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Products | Perumbavoor Surgicals</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perumbavoor Surgicals - Products Catalog</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,Arial,sans-serif;background:#f8fbff;color:#1e293b}
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    /* ===== MEDIX NAVBAR (same as homepage) ===== */
+    .medixnav-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 9999;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+    .medixnav-container {
+      max-width: 1400px;
+      margin: auto;
+      padding: 14px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .medixnav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .medixnav-brand img {
+      height: 54px;
+      width: auto;
+    }
+    .medixnav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .medixnav-links a {
+      text-decoration: none;
+      color: #334155;
+      font-weight: 600;
+      position: relative;
+      transition: .3s ease;
+    }
+    .medixnav-links a:not(.medixnav-cta)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 3px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, #1a6fc4, #5a9bdf);
+      transition: .3s;
+    }
+    .medixnav-links a:hover::after {
+      width: 100%;
+    }
+    .medixnav-links a:hover {
+      color: #1a6fc4;
+    }
+     .medixnav-links a.active {
+      color: #1a6fc4;
+    }
+    .medixnav-links a.active::after {
+      width: 100%;
+    }
+    .medixnav-cta {
+      background: linear-gradient(135deg, #1a6fc4, #5a9bdf);
+      color: white !important;
+      padding: 12px 22px;
+      border-radius: 50px;
+      box-shadow: 0 10px 25px rgba(26, 111, 196, .25);
+      transition: .3s;
+    }
+    .medixnav-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(26, 111, 196, .35);
+    }
+    .medixnav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+    }
+    .medixnav-toggle span {
+      width: 28px;
+      height: 3px;
+      background: #0f172a;
+      border-radius: 50px;
+      transition: 0.2s;
+    }
+    @media (max-width: 900px) {
+      .medixnav-toggle {
+        display: flex;
+      }
+      .medixnav-links {
+        position: fixed;
+        top: 84px;
+        right: -100%;
+        width: 280px;
+        height: calc(100vh - 84px);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 2rem;
+        gap: 1.5rem;
+        transition: .4s ease;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, .08);
+        border-left: 1px solid rgba(0,0,0,0.04);
+      }
+      .medixnav-links.medixnav-open {
+        right: 0;
+      }
+      .medixnav-brand img {
+        height: 46px;
+      }
+      .medixnav-links a:not(.medixnav-cta)::after {
+        display: none;
+      }
+         .medixnav-links a.active {
+        color: #1a6fc4;
+      }
+    }
 
-<style>
+    .hero{
+      padding:80px 5%;text-align:center;
+      background:linear-gradient(135deg,#e8f0fe,#f0f7fe)
+    }
+    .hero h1{font-size:3rem;margin-bottom:10px;color:#1a2a3a}
+    .hero p{max-width:800px;margin:auto;color:#4a6a8a;line-height:1.6}
+    .search{max-width:700px;margin:30px auto 0}
+    .search input{
+      width:100%;padding:15px 18px;border:1px solid #cbd5e1;
+      border-radius:12px;font-size:16px;outline:none
+    }
+    .search input:focus{border-color:#1a6fc4;box-shadow:0 0 0 3px rgba(26,111,196,.12)}
+    .category{padding:60px 5%}
+    .category h2{
+      margin-bottom:25px;color:#1a6fc4;border-left:5px solid #1a6fc4;
+      padding-left:15px;font-size:1.6rem
+    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:20px
+    }
+    .card{
+      background:#fff;border-radius:18px;overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,.06);
+      transition:.3s ease
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 28px rgba(26,111,196,.10)}
+    .card img{
+      width:100%;height:180px;object-fit:contain;display:block;
+      background:#eef6ff
+    }
+    .card h3{padding:16px;font-size:15px;line-height:1.4;color:#1e293b}
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+    /* ===== FOOTER (same as homepage) ===== */
+    .home-footer {
+      background: #ffffff;
+      border-top: 1px solid #e2edf2;
+      padding: 2.5rem 5% 1.8rem;
+      text-align: center;
+      margin-top: 0;
+    }
+    .home-footer .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .home-footer .footer-brand img {
+      height: 52px;
+      width: auto;
+      display: block;
+    }
+    .home-footer .footer-brand .brand-name {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1a6fc4, #4295d4);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .home-footer .footer-brand .sub {
+      font-size: 0.65rem;
+      color: #7e95a5;
+    }
+    .home-footer .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin: 1.2rem 0 1rem;
+    }
+    .home-footer .footer-links a {
+      text-decoration: none;
+      color: #4a6272;
+      font-size: 0.8rem;
+    }
+    .home-footer .footer-links a:hover {
+      color: #1a6fc4;
+    }
+    .home-footer p {
+      color: #94a3b8;
+      font-size: 0.65rem;
+    }
 
-body{
-  font-family:Inter,sans-serif;
-  background:#f8fbff;
-}
-
-nav{
-  position:sticky;
-  top:0;
-  background:white;
-  box-shadow:0 5px 20px rgba(0,0,0,.05);
-  padding:18px 8%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  z-index:100;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:800;
-  color:#0f766e;
-}
-
-.nav-links{
-  display:flex;
-  gap:30px;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:#1e293b;
-  font-weight:600;
-}
-
-.hero{
-  padding:120px 8%;
-  text-align:center;
-  background:
-  linear-gradient(135deg,#e7f9f6,#f8fbff);
-}
-
-.hero h1{
-  font-size:58px;
-  margin-bottom:20px;
-}
-
-.hero p{
-  max-width:700px;
-  margin:auto;
-  color:#64748b;
-}
-
-.category{
-  padding:80px 8%;
-}
-
-.category h2{
-  font-size:36px;
-  margin-bottom:40px;
-  color:#0f766e;
-}
-
-.products-grid{
-  display:grid;
-  grid-template-columns:
-  repeat(auto-fit,minmax(260px,1fr));
-  gap:25px;
-}
-
-.product-card{
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
-  transition:.3s;
-}
-
-.product-card:hover{
-  transform:translateY(-8px);
-}
-
-.product-card img{
-  width:100%;
-  height:220px;
-  object-fit:contain;
-}
-
-.product-info{
-  padding:20px;
-}
-
-.product-info h3{
-  font-size:18px;
-}
-
-.product-info p{
-  color:#64748b;
-  margin-top:10px;
-  font-size:14px;
-}
-
-footer{
-  text-align:center;
-  padding:50px;
-  background:#0f172a;
-  color:white;
-}
-
-</style>
+    @media(max-width:768px){
+      .hero h1{font-size:2rem}
+      .category{padding:40px 4%}
+      .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+      .card img{height:150px}
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div class="logo">Perumbavoor Surgicals</div>
-
-  <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/products">Products</a>
+<!-- ===== MEDIX NAVBAR (homepage style) ===== -->
+<header class="medixnav-wrapper">
+  <div class="medixnav-container">
+    <a href="index.html" class="medixnav-brand">
+      <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals">
+    </a>
+    <ul class="medixnav-links" id="medixnavLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html" class="active">Products</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="index.html#brochure">Brochure</a></li>
+      <li>
+        <a href="tel:+919846248007" class="medixnav-cta">
+          Call Now
+        </a>
+      </li>
+    </ul>
+    <button class="medixnav-toggle" id="medixnavToggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
-</nav>
+</header>
 
+<!-- HERO -->
 <section class="hero">
-  <h1>Medical Products & Equipment</h1>
-  <p>
-    Surgical instruments, hospital furniture,
-    mobility aids, diagnostic equipment,
-    home healthcare products and more.
-  </p>
+  <h1>Medical Products Catalogue</h1>
+  <p>Hospital Furniture, Surgical Instruments, Home Healthcare, Orthopaedic Products, Clinical Equipment and more.</p>
+  <div class="search">
+    <input id="search" type="text" placeholder="Search products..." />
+  </div>
 </section>
 
-<!-- HOSPITAL FURNITURE -->
+<div id="products"></div>
 
-<section class="category">
-
-<h2>Hospital Furniture</h2>
-
-<div class="products-grid">
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800" alt="">
-<div class="product-info">
-<h3>ICU Bed</h3>
-<p>Premium electric ICU beds.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0?w=800" alt="">
-<div class="product-info">
-<h3>Fowler Cot</h3>
-<p>Manual and semi-fowler patient beds.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800" alt="">
-<div class="product-info">
-<h3>Examination Table</h3>
-<p>Hospital examination and treatment tables.</p>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- MOBILITY -->
-
-<section class="category">
-
-<h2>Wheelchairs & Mobility Aids</h2>
-
-<div class="products-grid">
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1576765608866-5b51046452be?w=800" alt="">
-<div class="product-info">
-<h3>Wheelchair</h3>
-<p>Standard and reclining wheelchairs.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800" alt="">
-<div class="product-info">
-<h3>Walker</h3>
-<p>Lightweight mobility walkers.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=800" alt="">
-<div class="product-info">
-<h3>Commode Chair</h3>
-<p>Portable commode solutions.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- HOME HEALTHCARE -->
-
-<section class="category">
-
-<h2>Home Healthcare Products</h2>
-
-<div class="products-grid">
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=800" alt="">
-<div class="product-info">
-<h3>BP Monitor</h3>
-<p>Digital blood pressure monitoring.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=800" alt="">
-<div class="product-info">
-<h3>Glucometer</h3>
-<p>Blood glucose monitoring systems.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1583947582886-f40ec95dd752?w=800" alt="">
-<div class="product-info">
-<h3>Nebulizer</h3>
-<p>Home respiratory treatment devices.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- SURGICAL -->
-
-<section class="category">
-
-<h2>Surgical Instruments</h2>
-
-<div class="products-grid">
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1580281657527-47b4a86f48f6?w=800" alt="">
-<div class="product-info">
-<h3>Artery Forceps</h3>
-<p>High quality stainless steel instruments.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800" alt="">
-<div class="product-info">
-<h3>Scissors</h3>
-<p>Surgical and dressing scissors.</p>
-</div>
-</div>
-
-<div class="product-card">
-<img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=800" alt="">
-<div class="product-info">
-<h3>Mosquito Forceps</h3>
-<p>Precision surgical forceps.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<footer>
-© 2026 Perumbavoor Surgicals Pvt Ltd
+<!-- ===== FOOTER (homepage style) ===== -->
+<footer class="home-footer">
+  <div class="footer-brand">
+    <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals Logo">
+    <span class="brand-name">Perumbavoor Surgicals</span>
+    <span class="sub">Surgical Hyper Mart · Perumbavoor, Kerala</span>
+  </div>
+  <ul class="footer-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#brochure">Brochure</a></li>
+  </ul>
+  <p>© 2026 Perumbavoor Surgicals Pvt Ltd</p>
 </footer>
 
+<script>
+  // ===== MEDIX NAVBAR TOGGLE =====
+  const toggleBtn = document.getElementById('medixnavToggle');
+  const navLinks = document.getElementById('medixnavLinks');
+  const bodyEl = document.body;
+
+  function toggleMenu() {
+    navLinks.classList.toggle('medixnav-open');
+    bodyEl.classList.toggle('menu-open');
+  }
+  toggleBtn.addEventListener('click', toggleMenu);
+
+  document.querySelectorAll('.medixnav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('medixnav-open');
+      bodyEl.classList.remove('menu-open');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.medixnav-wrapper') && navLinks.classList.contains('medixnav-open')) {
+      navLinks.classList.remove('medixnav-open');
+      bodyEl.classList.remove('menu-open');
+    }
+  });
+
+  // ===== PRODUCTS DATA =====
+  const categories = {
+    "Hygienic Products":[
+      "DYNA N95 Mask","3 Ply Face Mask","Bouffant Cap","Wringer Trolley","SS 4 BIN SET 20 SET Ltr.","Bouffant Cap","Dr. Morepen Pulse Oxymeter","Hand Sanitiser","Foot Operated Dustbin","Lab Coat","Surgeon Gown","Non Contact Thermometer",
+    "Disposable Hub Cutter", "Dustbin And Garbage Bag", "House Hold Gloves", "Nitrile Gloves", "Caution Board", "Manual Syringe Needle Cutter"],
+    
+    "Wheelchairs":[
+      "MH 10.3","MH Rainbow 8","MH Fighter C","MH Fighter C HS","MH Rainbow 6","MH Sunny 6","MH Sunny 7","MH Sunny 8","MH PC1 Paediatric","MH CP 200","MH 500","MH Ergo Light 2","MH Sergo 305","MH Rainbow 2 C","MH Rainbow 5" 
+    ],
+    "Commode Series":[
+      "MH Rainbow 9","MH Rainbow 11","MH Rider 210","MH 900","MH 449 Toilet Raiser"
+    ],
+    "Hospital Furniture":[
+      "MOTORIZED ICU COT 5 FUNCTION","MANUAL ICU COT 5 FUNCTION","MOTORIZED ICU COT 3 FUNCTION","MANUAL ICU COT 3 FUNCTION","FOWLER COT 2 FUNCTION","SEMI FOWLER COT 1 FUNCTION","FOWLERS COT","SEMIFOWLER COT"," ORDINARY COT","EXAMINATION TABLE","EXAMINATION COUCH","SRETCHER TROLLEY","MEDICINE TROLLEY","DRESSING TROLLEY","CRASH CART TROLLEY","BED SIDE LOCKER","BED SIDE SCREEN","OXYGEN TROLLEY","REVOLVING STOOL"
+    ,"FOOT STEР","LAB CHAIR","CARDIAC TABLE","IV STAND","TRIPPLE BUCKET MOPPING TROLLEY", "SIDE RAILS","LABOR COТ"],
+    "Hospital Hollowares":[
+      "DRESSING TRAY S.S", "KIDNEY TRAY S.S", "VERTICAL AUTOCLAVE S.S", "AUTOCLAVE", "DRESSING BIN S.S", "URINE CAN S.S", "BED PAN S.S", "FORCEPS JAR S.S", "SPITOON CUP S.S", "ELECTRICAL STERILISER S.S"
+    ],
+    "Diabetic & Orthopaedic Footwear": [
+      "MCR SHOE","MCR CHAPPAL","MCR CHAPPAL","MCR CHAPPAL","MCR CHAPPAL",
+    ],
+    "Surgical Instruments":[
+      "Dressing Scissors","Artery Forceps","Mosquito Forceps","Dissecting Forceps","Cheatle Jar & Forceps","BP Handle","Suture Cutting Scissors","Cuticle Scissors","Tailoring Scissors","Bandage Cutting Scissors"
+    ],
+    "Home Healthcare":[
+      "Digital BP Monitor","Glucometer","Air Bed Bubble Type","Air Bed Tubular","Water Bed","Clinical Thermometer","Non Contact Termometer","Digital Thermometer","Height Weight Stature","Digital Weighing Scale","Vaporiser","Heating Pad","Yoga Mat","Cervical Pillow","Baby Wet Wipes","Baby Diaper","Body Massager","Hot Water Bag","Infrared Lamp"
+    ],
+    "Clinical Products":[
+      "Piston Compressor Nebuliser","Mini Vaporiser","Stethoscope","BP Apparatus","Foetal Doppler","Aneroid Sphygmomanometer","Electric Hot Water Bag","Pen Torch","Needle Destroyer","Otoscope","Ophthalmoscope","Spotlight","X-Ray View Box","Vision Drum","LED Laryngoscope"
+    ],
+    "Orthopaedic Products":[
+      "Lumbo Sacral Belt","Abdominal Belt","Cervical Collar","Ankle Binder","Crepe Bandage","Knee Cap","Arm Sling","Varicose Stockings","Wrist Support","Walker","Back Rest","Knee Immobiliser","Crutches","Quadripod","Tripod"
+    ],
+    "Ortho/Miscellaneous": [
+      "Oxygen Concentrator","BiPAP","CPAP","Oxygen Cylinder Iron","Oxygen Flow Meter","Silicone Ambu Bag","Oxygen Mask","Tracheostomy Tube","Respirometer","Endotracheal Tube"
+    ],
+    "Miscellaneous":[
+      "Ice Bag","Blood Lancets","Gym Ball","Pop Plaster","Suture Needle","Yoga Mat","Nelaton Catheter","ECG Gel","Alcohol Swab","Cotton Gloves","Medical Spirit","Thera Band","Menstrual Cup","Ring Pessary","Adhesive Tape"
+    ],
+    "Surgical Equipment":[
+      "Multipara Monitor 12.1","Multipara Monitor 8","ECG Machine 6 Channel","ECG Machine 3 Channel","Lifeline AED Defibrillator"
+    ]
+  };
+
+  const container = document.getElementById('products');
+  const productImages = Array.from({ length: 168 }, (_, i) => `../assets/images/a${i + 1}.jpg`);
+  let imageIndex = 0;
+
+  Object.entries(categories).forEach(([cat, items]) => {
+    let html = `<section class="category" data-category="${cat.toLowerCase()}">
+      <h2>${cat} </h2>
+      <div class="grid">`;
+
+    items.forEach((p) => {
+      const imagePath = productImages[imageIndex] || '../assets/images/no-image.jpg';
+      imageIndex++;
+
+      html += `
+        <div class="card product" data-name="${p.toLowerCase()}">
+          <img src="${imagePath}" alt="${p}" loading="lazy">
+          <h3>${p}</h3>
+        </div>`;
+    });
+
+    html += `</div></section>`;
+    container.innerHTML += html;
+  });
+
+  document.getElementById('search').addEventListener('input', (e) => {
+    const q = e.target.value.trim().toLowerCase();
+    document.querySelectorAll('.product').forEach((card) => {
+      card.style.display = card.dataset.name.includes(q) ? 'block' : 'none';
+    });
+  });
+</script>
 </body>
 </html>
