@@ -218,6 +218,12 @@ html {
       box-shadow: 0 10px 25px rgba(26, 111, 196, .25);
       transition: .3s;
     }
+       .medixnav-links a.active {
+      color: #1a6fc4;
+    }
+    .medixnav-links a.active::after {
+      width: 100%;
+    }
 
     .medixnav-cta:hover {
       transform: translateY(-3px);
@@ -877,7 +883,7 @@ html {
       <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals">
     </a>
     <ul class="medixnav-links" id="medixnavLinks">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="products.html">Products</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="#brochure">Brochure</a></li>
