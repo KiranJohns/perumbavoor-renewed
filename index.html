@@ -1,9 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Perumbavoor Surgicals | Premium Medical Equipment Kerala</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+<title>Perumbavoor Surgicals | Surgical Hyper Mart & Medical Equipment Supplier Kerala</title>
+
+<meta name="description" content="Perumbavoor Surgicals Pvt Ltd is a trusted medical equipment and surgical supplier in Perumbavoor, Kerala. We provide surgical instruments, hospital furniture, diagnostic devices, mobility aids, home healthcare products and medical consumables.">
+
+<meta name="keywords" content="Perumbavoor Surgicals, Medical Equipment Kerala, Surgical Supplier Kerala, Hospital Furniture Kerala, Surgical Instruments Perumbavoor, Medical Devices Kerala, Mobility Aids Kerala, Home Healthcare Kerala, Diagnostic Equipment Kerala">
+
+<meta name="author" content="Perumbavoor Surgicals Pvt Ltd">
+<meta name="robots" content="index, follow">
+<meta name="language" content="English">
+
+<link rel="canonical" href="https://perumbavoorsurgicals.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Perumbavoor Surgicals | Medical Equipment Supplier Kerala">
+<meta property="og:description" content="Trusted supplier of surgical instruments, hospital furniture, diagnostic devices and home healthcare products in Kerala.">
+<meta property="og:url" content="https://perumbavoorsurgicals.com/">
+<meta property="og:image" content="https://perumbavoorsurgicals.com/assets/logo/logo.png">
+<meta property="og:site_name" content="Perumbavoor Surgicals">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Perumbavoor Surgicals | Medical Equipment Supplier Kerala">
+<meta name="twitter:description" content="Trusted medical and surgical equipment supplier in Kerala.">
+<meta name="twitter:image" content="https://perumbavoorsurgicals.com/assets/logo/logo.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/assets/logo/favicon.png">
+<link rel="apple-touch-icon" href="/assets/logo/favicon.png">
+
+<!-- Local Business Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MedicalBusiness",
+  "name":"Perumbavoor Surgicals Pvt Ltd",
+  "url":"https://perumbavoorsurgicals.com",
+  "logo":"https://perumbavoorsurgicals.com/assets/logo/logo.png",
+  "description":"Medical and surgical equipment supplier in Kerala providing surgical instruments, hospital furniture, diagnostic equipment and home healthcare products.",
+  "telephone":"+919846248007",
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"Perumbavoor",
+    "addressRegion":"Kerala",
+    "addressCountry":"IN"
+  }
+}
+</script>
   <style>
     * {
       margin: 0;
@@ -41,8 +90,16 @@
       color: var(--gray-900);
       line-height: 1.5;
       overflow-x: hidden;
-    }
+      width: 100%;
+  overscroll-behavior-x: none;
 
+    }
+html {
+  overflow-x: hidden;
+  width: 100%;
+
+  overscroll-behavior-x: none;
+}
     /* Typography */
     .section-label {
       font-size: 0.7rem;
@@ -191,26 +248,27 @@
       }
 
       .medixnav-links {
-        position: fixed;
-        top: 84px;
-        right: -100%;
-        width: 280px;
-        height: calc(100vh - 84px);
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 2rem;
-        gap: 1.5rem;
-        transition: .4s ease;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, .08);
-        border-left: 1px solid rgba(0,0,0,0.04);
-      }
+    position: fixed;
+    top: 84px;
+    right: 0;
+    width: 280px;
+    height: calc(100vh - 84px);
+    transform: translateX(100%);   /* was: right: -100% */
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    gap: 1.5rem;
+    transition: transform .4s ease;   /* was: transition: .4s ease (transitioning `right`) */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, .08);
+    border-left: 1px solid rgba(0,0,0,0.04);
+  }
 
-      .medixnav-links.medixnav-open {
-        right: 0;
-      }
+  .medixnav-links.medixnav-open {
+    transform: translateX(0);   /* was: right: 0 */
+  }
 
       .medixnav-brand img {
         height: 46px;

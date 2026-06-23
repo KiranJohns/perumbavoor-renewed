@@ -1,14 +1,78 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Contact · Perumbavoor Surgicals</title>
+<title>Contact Perumbavoor Surgicals | Medical Equipment Supplier Kerala</title>
+
+<meta name="description" content="Contact Perumbavoor Surgicals Pvt Ltd in Perumbavoor, Ernakulam, Kerala. Get assistance with medical equipment, surgical instruments, hospital furniture, mobility aids, home healthcare products and diagnostic devices.">
+
+<meta name="keywords" content="Contact Perumbavoor Surgicals, Medical Equipment Supplier Kerala, Surgical Supplier Perumbavoor, Hospital Furniture Kerala, Medical Store Perumbavoor, Surgical Hyper Mart Kerala, Medical Supplies Ernakulam">
+
+<meta name="author" content="Perumbavoor Surgicals Pvt Ltd">
+<meta name="robots" content="index, follow">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/assets/logo/favicon.png">
+<link rel="apple-touch-icon" href="/assets/logo/favicon.png">
+
+<link rel="canonical" href="https://perumbavoorsurgicals.com/contact.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact Perumbavoor Surgicals">
+<meta property="og:description" content="Visit, call or email Perumbavoor Surgicals for medical equipment, surgical supplies and healthcare products in Kerala.">
+<meta property="og:url" content="https://perumbavoorsurgicals.com/contact.html">
+<meta property="og:image" content="https://perumbavoorsurgicals.com/assets/logo/logo.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact Perumbavoor Surgicals">
+<meta name="twitter:description" content="Medical equipment and surgical supplies provider in Perumbavoor, Kerala.">
+<meta name="twitter:image" content="https://perumbavoorsurgicals.com/assets/logo/logo.png">
+
+<!-- Local Business Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MedicalBusiness",
+  "name":"Perumbavoor Surgicals Pvt Ltd",
+  "url":"https://perumbavoorsurgicals.com",
+  "telephone":"+919846248007",
+  "email":"info@perumbavoorsurgicals.com",
+  "logo":"https://perumbavoorsurgicals.com/assets/logo/logo.png",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Pattarumadom Complex, Near Apsara Hotel, KSRTC Road",
+    "addressLocality":"Perumbavoor",
+    "addressRegion":"Kerala",
+    "postalCode":"683542",
+    "addressCountry":"IN"
+  },
+  "openingHours":"Mo-Sa 09:00-19:00"
+}
+</script>
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    /* ----- FIX 1: overflow-x + overscroll on html & body ----- */
+    html {
+      overflow-x: hidden;
+      width: 100%;
+      overscroll-behavior-x: none;
+    }
+
+    body {
+      font-family: Inter, Arial, sans-serif;
+      background: #f8fbff;
+      color: #1e293b;
+      overflow-x: hidden;
+      width: 100%;
+      overscroll-behavior-x: none;
+    }
+
+    /* ----- FIX 2: body.menu-open stops background scroll ----- */
+    body.menu-open {
+      overflow: hidden;
     }
 
     :root {
@@ -33,10 +97,6 @@
       --shadow-md: 0 10px 22px -8px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
       --shadow-lg: 0 20px 28px -12px rgba(26, 111, 196, 0.12);
       --transition: all 0.25s ease;
-    }
-
-    body {
-    font-family:Inter,Arial,sans-serif;background:#f8fbff;color:#1e293b
     }
 
     .section-label {
@@ -76,7 +136,7 @@
       transform: translateY(0);
     }
 
-    /* ===== MEDIX NAVBAR (refined - same as products page) ===== */
+    /* ===== MEDIX NAVBAR (fixed off-canvas) ===== */
     .medixnav-wrapper {
       position: sticky;
       top: 0;
@@ -88,6 +148,7 @@
       border-bottom: 1px solid rgba(0, 0, 0, 0.06);
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     }
+
     .medixnav-container {
       max-width: 1400px;
       margin: auto;
@@ -96,29 +157,34 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .medixnav-brand {
       display: flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
     }
+
     .medixnav-brand img {
       height: 54px;
       width: auto;
     }
+
     .medixnav-links {
       display: flex;
       align-items: center;
       gap: 2rem;
       list-style: none;
     }
+
     .medixnav-links a {
-     text-decoration: none;
+      text-decoration: none;
       color: #334155;
       font-weight: 600;
       position: relative;
       transition: .3s ease;
     }
+
     .medixnav-links a:not(.medixnav-cta)::after {
       content: "";
       position: absolute;
@@ -130,36 +196,43 @@
       background: linear-gradient(90deg, #1a6fc4, #5a9bdf);
       transition: .3s ease;
     }
+
     .medixnav-links a:not(.medixnav-cta):hover::after {
       width: 100%;
     }
+
     .medixnav-links a:not(.medixnav-cta):hover {
       color: #1a6fc4;
     }
+
     .medixnav-links a.active {
       color: #1a6fc4;
     }
+
     .medixnav-links a.active::after {
       width: 100%;
     }
+
     .medixnav-cta {
       background: linear-gradient(135deg, #1a6fc4, #5a9bdf);
       color: white !important;
-       padding: 12px 22px!important;
+      padding: 12px 22px !important;
       border-radius: 50px;
       box-shadow: 0 10px 25px rgba(26, 111, 196, .25);
       transition: .3s;
       font-weight: 600;
-      /* letter-spacing: 0.02em; */
     }
+
     .medixnav-cta:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 35px rgba(26, 111, 196, .35);
       color: white !important;
     }
+
     .medixnav-cta::after {
       display: none !important;
     }
+
     .medixnav-toggle {
       display: none;
       flex-direction: column;
@@ -168,6 +241,7 @@
       background: transparent;
       cursor: pointer;
     }
+
     .medixnav-toggle span {
       width: 28px;
       height: 3px;
@@ -175,16 +249,21 @@
       border-radius: 50px;
       transition: 0.2s;
     }
+
+    /* ----- FIX 3 & 4: off-canvas using translateX + max-width ----- */
     @media (max-width: 900px) {
       .medixnav-toggle {
         display: flex;
       }
+
       .medixnav-links {
         position: fixed;
         top: 84px;
-        right: -100%;
+        right: 0;
         width: 280px;
+        max-width: 80vw;
         height: calc(100vh - 84px);
+        transform: translateX(100%);
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
@@ -192,48 +271,58 @@
         align-items: flex-start;
         padding: 2rem 2rem 2rem 2.2rem;
         gap: 1.5rem;
-        transition: .4s ease;
+        transition: transform .4s ease;
         box-shadow: -10px 0 30px rgba(0, 0, 0, .08);
-        border-left: 1px solid rgba(0,0,0,0.04);
+        border-left: 1px solid rgba(0, 0, 0, 0.04);
+        overflow-y: auto;
       }
+
       .medixnav-links.medixnav-open {
-        right: 0;
+        transform: translateX(0);
       }
+
       .medixnav-brand img {
         height: 46px;
       }
+
       .medixnav-links a:not(.medixnav-cta)::after {
         display: none;
       }
+
       .medixnav-links a {
         font-size: 1.1rem;
         padding: 6px 0;
       }
+
       .medixnav-links a.active {
         color: #1a6fc4;
       }
     }
 
-    /* ===== CONTACT HERO (matches products page hero) ===== */
+    /* ===== CONTACT HERO ===== */
     .contact-hero {
       padding: 60px 5%;
       text-align: center;
       background: linear-gradient(135deg, #e8f0fe, #f0f7fe);
     }
+
     .contact-hero h1 {
       font-size: 3rem;
       margin-bottom: 10px;
       color: #1a2a3a;
     }
+
     .contact-hero h1 span {
       color: #1a6fc4;
     }
+
     .contact-hero p {
       max-width: 800px;
       margin: auto;
       color: #4a6a8a;
       line-height: 1.6;
     }
+
     .contact-hero .hero-actions {
       display: flex;
       justify-content: center;
@@ -241,7 +330,9 @@
       flex-wrap: wrap;
       margin-top: 30px;
     }
-    .btn-primary, .btn-outline {
+
+    .btn-primary,
+    .btn-outline {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
@@ -252,32 +343,37 @@
       transition: all 0.2s;
       font-size: 0.85rem;
     }
+
     .btn-primary {
       background: var(--primary);
       color: white;
       box-shadow: 0 6px 14px rgba(26, 111, 196, 0.2);
     }
+
     .btn-primary:hover {
       background: #155ca8;
       transform: translateY(-2px);
       box-shadow: 0 12px 20px -8px rgba(26, 111, 196, 0.3);
     }
+
     .btn-outline {
       border: 1px solid #cbd5e1;
       color: #334155;
       background: white;
     }
+
     .btn-outline:hover {
       border-color: #1a6fc4;
       color: #1a6fc4;
       transform: translateY(-2px);
     }
 
-    /* ===== CONTENT GRID (matches products page card style) ===== */
+    /* ===== CONTENT GRID ===== */
     .contact-main {
       padding: 60px 5%;
       background: #f8fbff;
     }
+
     .contact-grid {
       max-width: 1280px;
       margin: 0 auto;
@@ -298,6 +394,7 @@
       flex-direction: column;
       justify-content: space-between;
     }
+
     .contact-details:hover {
       transform: translateY(-6px);
       box-shadow: 0 12px 28px rgba(26, 111, 196, 0.10);
@@ -306,9 +403,11 @@
     .contact-block {
       margin-bottom: 1.4rem;
     }
+
     .contact-block:last-child {
       margin-bottom: 0;
     }
+
     .contact-block-label {
       font-size: 0.6rem;
       font-weight: 700;
@@ -317,14 +416,18 @@
       margin-bottom: 0.3rem;
       text-transform: uppercase;
     }
-    .contact-block p, .contact-block a {
+
+    .contact-block p,
+    .contact-block a {
       font-size: 0.95rem;
       color: #1e293b;
       text-decoration: none;
     }
+
     .contact-block a:hover {
       color: var(--primary);
     }
+
     .contact-divider {
       width: 32px;
       height: 2px;
@@ -341,10 +444,12 @@
       background: #eef6ff;
       transition: .3s ease;
     }
+
     .map-wrapper:hover {
       transform: translateY(-6px);
       box-shadow: 0 12px 28px rgba(26, 111, 196, 0.10);
     }
+
     .map-wrapper iframe {
       width: 100%;
       height: 100%;
@@ -361,6 +466,7 @@
       padding-top: 1.2rem;
       border-top: 1px solid #ecf3f7;
     }
+
     .meta-item {
       display: flex;
       align-items: center;
@@ -368,6 +474,7 @@
       font-size: 0.8rem;
       color: #4a6272;
     }
+
     .meta-item strong {
       color: #1e2a36;
       font-weight: 600;
@@ -378,21 +485,25 @@
         grid-template-columns: 1fr;
         gap: 2rem;
       }
+
       .contact-hero h1 {
         font-size: 2rem;
       }
+
       .map-wrapper {
         min-height: 320px;
       }
+
       .map-wrapper iframe {
         min-height: 320px;
       }
+
       .contact-details {
         height: auto;
       }
     }
 
-    /* ===== FOOTER (same as products page) ===== */
+    /* ===== FOOTER ===== */
     .home-footer {
       background: #ffffff;
       border-top: 1px solid #e2edf2;
@@ -400,17 +511,20 @@
       text-align: center;
       margin-top: 0;
     }
+
     .home-footer .footer-brand {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.3rem;
     }
+
     .home-footer .footer-brand img {
       height: 52px;
       width: auto;
       display: block;
     }
+
     .home-footer .footer-brand .brand-name {
       font-size: 1.3rem;
       font-weight: 700;
@@ -419,10 +533,12 @@
       -webkit-background-clip: text;
       color: transparent;
     }
+
     .home-footer .footer-brand .sub {
       font-size: 0.65rem;
       color: #7e95a5;
     }
+
     .home-footer .footer-links {
       display: flex;
       justify-content: center;
@@ -430,15 +546,18 @@
       list-style: none;
       margin: 1.2rem 0 1rem;
     }
+
     .home-footer .footer-links a {
       text-decoration: none;
       color: #4a6272;
       font-size: 0.8rem;
       transition: .2s;
     }
+
     .home-footer .footer-links a:hover {
       color: #1a6fc4;
     }
+
     .home-footer p {
       color: #94a3b8;
       font-size: 0.65rem;
@@ -448,11 +567,13 @@
       .contact-hero h1 {
         font-size: 1.7rem;
       }
+
       .contact-hero .hero-actions {
         flex-direction: column;
         align-items: center;
         width: 100%;
       }
+
       .contact-hero .hero-actions .btn-primary,
       .contact-hero .hero-actions .btn-outline {
         width: 100%;
@@ -463,89 +584,89 @@
 </head>
 <body>
 
-<!-- ===== MEDIX NAVBAR (refined - same as products page) ===== -->
-<header class="medixnav-wrapper">
-  <div class="medixnav-container">
-    <a href="index.html" class="medixnav-brand">
-      <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals">
-    </a>
-    <ul class="medixnav-links" id="medixnavLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-      <li><a href="index.html#brochure">Brochure</a></li>
-      <li>
-        <a href="tel:+919846248007" class="medixnav-cta">
-          Call Now
-        </a>
-      </li>
-    </ul>
-    <button class="medixnav-toggle" id="medixnavToggle" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</header>
-
-<!-- CONTACT HERO -->
-<section class="contact-hero">
-  <h1>Get in <span>Touch</span></h1>
-  <p>Visit our store, call us, or send an email — our team is ready to assist with all your medical equipment needs.</p>
-  <div class="hero-actions">
-    <a href="tel:9846248000" class="btn-primary">📞 Call Now</a>
-    <a href="mailto:info@perumbavoorsurgicals.com" class="btn-outline">✉️ Email Us</a>
-  </div>
-</section>
-
-<!-- CONTENT GRID -->
-<section class="contact-main" id="contact">
-  <div class="contact-grid">
-    <!-- left: details -->
-    <div class="contact-details reveal">
-      <div>
-        <div class="contact-block">
-          <div class="contact-block-label">📍 Address</div>
-          <p><strong>Perumbavoor Surgicals Pvt Ltd</strong><br>
-          Pattarumadom Complex<br>
-          Near Apsara Hotel, KSRTC Road<br>
-          Perumbavoor, Ernakulam<br>
-          Kerala – 683542</p>
-        </div>
-
-        <div class="contact-divider"></div>
-
-        <div class="contact-block">
-          <div class="contact-block-label">📞 Phone</div>
-          <p><a href="tel:9846248007">9846248007</a></p>
-        </div>
-
-        <div class="contact-block">
-          <div class="contact-block-label">✉️ Email</div>
-          <p><a href="mailto:info@perumbavoorsurgicals.com">info@perumbavoorsurgicals.com</a></p>
-        </div>
-
-        <div class="contact-divider"></div>
-
-        <div class="contact-block">
-          <div class="contact-block-label">🕒 Business Hours</div>
-          <p>Monday – Saturday &nbsp;·&nbsp; 9:00 am – 7:00 pm<br>
-          <span style="font-size:0.8rem; color:#7e95a5;">Sunday closed</span></p>
-        </div>
-      </div>
-
-      <div class="contact-meta">
-        <span class="meta-item"><strong>📦</strong> Surgical Hyper Mart</span>
-        <span class="meta-item"><strong>🏥</strong> Hospital & home care</span>
-        <span class="meta-item"><strong>♿</strong> Mobility aids</span>
-      </div>
+  <!-- ===== MEDIX NAVBAR ===== -->
+  <header class="medixnav-wrapper">
+    <div class="medixnav-container">
+      <a href="index.html" class="medixnav-brand">
+        <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals">
+      </a>
+      <ul class="medixnav-links" id="medixnavLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="index.html#brochure">Brochure</a></li>
+        <li>
+          <a href="tel:+919846248007" class="medixnav-cta">
+            Call Now
+          </a>
+        </li>
+      </ul>
+      <button class="medixnav-toggle" id="medixnavToggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </header>
 
-    <!-- right: map -->
-    <div class="map-wrapper reveal">
-      <iframe 
-        src="https://maps.google.com/maps?q=perumbavoor%20surgicals&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-        title="Perumbavoor Surgicals location" 
+  <!-- CONTACT HERO -->
+  <section class="contact-hero">
+    <h1>Get in <span>Touch</span></h1>
+    <p>Visit our store, call us, or send an email — our team is ready to assist with all your medical equipment needs.</p>
+    <div class="hero-actions">
+      <a href="tel:9846248007" class="btn-primary">📞 Call Now</a>
+      <a href="mailto:info@perumbavoorsurgicals.com" class="btn-outline">✉️ Email Us</a>
+    </div>
+  </section>
+
+  <!-- CONTENT GRID -->
+  <section class="contact-main" id="contact">
+    <div class="contact-grid">
+      <!-- left: details -->
+      <div class="contact-details reveal">
+        <div>
+          <div class="contact-block">
+            <div class="contact-block-label">📍 Address</div>
+            <p><strong>Perumbavoor Surgicals Pvt Ltd</strong><br>
+              Pattarumadom Complex<br>
+              Near Apsara Hotel, KSRTC Road<br>
+              Perumbavoor, Ernakulam<br>
+              Kerala – 683542</p>
+          </div>
+
+          <div class="contact-divider"></div>
+
+          <div class="contact-block">
+            <div class="contact-block-label">📞 Phone</div>
+            <p><a href="tel:9846248007">9846248007</a></p>
+          </div>
+
+          <div class="contact-block">
+            <div class="contact-block-label">✉️ Email</div>
+            <p><a href="mailto:info@perumbavoorsurgicals.com">info@perumbavoorsurgicals.com</a></p>
+          </div>
+
+          <div class="contact-divider"></div>
+
+          <div class="contact-block">
+            <div class="contact-block-label">🕒 Business Hours</div>
+            <p>Monday – Saturday &nbsp;·&nbsp; 9:00 am – 7:00 pm<br>
+              <span style="font-size:0.8rem; color:#7e95a5;">Sunday closed</span></p>
+          </div>
+        </div>
+
+        <div class="contact-meta">
+          <span class="meta-item"><strong>📦</strong> Surgical Hyper Mart</span>
+          <span class="meta-item"><strong>🏥</strong> Hospital & home care</span>
+          <span class="meta-item"><strong>♿</strong> Mobility aids</span>
+        </div>
+      </div>
+
+      <!-- right: map -->
+      <div class="map-wrapper reveal">
+        <iframe
+        src="https://maps.google.com/maps?q=perumbavoor%20surgicals&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        title="Perumbavoor Surgicals location"
         loading="lazy"
         allowfullscreen>
       </iframe>
@@ -553,7 +674,7 @@
   </div>
 </section>
 
-<!-- ===== FOOTER (same as products page) ===== -->
+<!-- ===== FOOTER ===== -->
 <footer class="home-footer">
   <div class="footer-brand">
     <img src="../assets/logo/logo.png" alt="Perumbavoor Surgicals Logo">
@@ -564,7 +685,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="products.html">Products</a></li>
     <li><a href="contact.html">Contact</a></li>
-    <li><a href="index.html">Brochure</a></li>
+    <li><a href="index.html#brochure">Brochure</a></li>
   </ul>
   <p>© 2026 Perumbavoor Surgicals Pvt Ltd</p>
 </footer>
@@ -579,6 +700,7 @@
     navLinks.classList.toggle('medixnav-open');
     bodyEl.classList.toggle('menu-open');
   }
+
   toggleBtn.addEventListener('click', toggleMenu);
 
   document.querySelectorAll('.medixnav-links a').forEach(link => {
