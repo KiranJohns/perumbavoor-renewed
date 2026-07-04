@@ -596,10 +596,10 @@ html {
 }
 
 .about-img-wrap img {
-  display: block;   /* Fixes bottom gap */
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
+    width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Fills the box, crops if needed */
+  display: block;
 }
     .about-cert {
       display: flex;
@@ -939,7 +939,7 @@ html {
 <section class="about-section" id="about">
   <div class="about-inner">
     <div class="about-visual reveal">
-      <div class="about-img-wrap"><img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=700&q=80" alt="Medical Equipment" loading="lazy"></div>
+      <div class="about-img-wrap"><img src="/assets/logo/hero.jpeg" alt="Medical Equipment" loading="lazy"></div>
     </div>
     <div class="about-text reveal">
       <div class="section-label">About Us</div>
